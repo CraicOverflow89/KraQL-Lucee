@@ -7,23 +7,23 @@
 	}
 
 	// View Logic
-	request.renderView = function() {
+	request.render = function() {
 
 		// Default Event
 		var event = function() {
 
 			// Default Event
 			var event = {
-				"group" : "items",
-				"page"  : "list"
+				"controller" : "item",
+				"action"     : "list"
 			}
 	
 			// Bespoke Event
 			if(structKeyExists(url, "event") && reFind("[A-Za-z0-9]+\.[A-Za-z0-9]+", url.event)) {
 				var eventSplit = listToArray(url.event, ".")
 				event = {
-					"group" : eventSplit[1],
-					"page"  : eventSplit[2]
+					"controller" : eventSplit[1],
+					"action"     : eventSplit[2]
 				}
 			}
 	
@@ -31,9 +31,26 @@
 			return event
 		}()
 
-		// Include View
-		var viewString = arrayToList(["views", event.group, event.page], "/") & ".cfm"
+		// Invoke Event
+		invoke(createObject("component", "controllers/" & event.controller), event.action)
+
+		// Render Content
+		var viewString = "views/" & event.controller & "/" & event.action & ".cfm"
 		include viewString
+	}
+
+	// Redirect Logic
+	redirect = function(String event) {
+		location("index.cfm?event=" & event)
+	}
+
+	// Render Panel
+	renderPanel = function(String header, String view) {
+		request.panel = {
+			"header" : header,
+			"view"   : view
+		}
+		include "views/partials/panel.cfm"
 	}
 
 	// Render Layout

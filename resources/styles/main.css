@@ -3,7 +3,33 @@
 
 * {
 	background-color: rgba(0, 0, 0, 1);
-	color: rgba(255, 255, 255, 1);
+	color: rgba(97, 97, 97, 1);
 	margin: 0px;
 	padding: 0px;
+}
+
+table {
+	margin: 0px;
+	padding: 0px;
+}
+
+table td {
+	border-collapse: collapse;
+	border: 0px;
+}
+
+/* PANEL
+*/
+
+div.panel {
+	background-color: #333333;
+	border: 1px solid rgba(97, 97, 97, 1);
+}
+
+di.panel > table {
+	padding: 10px;
+}
+
+div.panel table tr:first-child td {
+	background-color: rgb(255, 255, 255, 1)
 }

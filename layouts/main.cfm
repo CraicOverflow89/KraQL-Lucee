@@ -14,7 +14,7 @@
 			<tr>
 				<td width = "15"></td>
 				<td>
-					<cfoutput>#request.renderView()#</cfoutput>
+					<cfscript>#renderPanel("Items", "view?")#</cfscript>
 				</td>
 				<td width = "15"></td>
 			</tr>
