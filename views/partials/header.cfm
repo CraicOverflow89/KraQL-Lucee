@@ -1,0 +1,1 @@
+<image src = "resources/images/logo.png" /><br>

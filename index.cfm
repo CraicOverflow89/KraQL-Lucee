@@ -1,5 +1,11 @@
 <cfscript>
 
+	// Partial Logic
+	request.renderPartial = function(name) {
+		var viewString = "views/partials/" & name & ".cfm"
+		include viewString
+	}
+
 	// View Logic
 	request.renderView = function() {
 
