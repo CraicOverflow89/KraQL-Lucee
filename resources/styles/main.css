@@ -14,8 +14,11 @@ table {
 }
 
 table td {
-	border-collapse: collapse;
 	border: 0px;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	margin: 0px;
+	padding: 0px;
 }
 
 /* PANEL

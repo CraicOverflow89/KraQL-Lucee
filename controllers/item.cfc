@@ -12,6 +12,8 @@ component output = false {
 		//var itemList = database
 
 		// Render View
+		request.itemList = []
+		// TEMP
 	}
 
 }

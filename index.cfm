@@ -39,18 +39,14 @@
 		include viewString
 	}
 
+	// Panel Decorator
+	//request.decorators
+	// NOTE: change this to map of decorators based on files in decorators directory
+	request.panel = createObject("component", "decorators/panel")
+
 	// Redirect Logic
 	redirect = function(String event) {
 		location("index.cfm?event=" & event)
-	}
-
-	// Render Panel
-	renderPanel = function(String header, String view) {
-		request.panel = {
-			"header" : header,
-			"view"   : view
-		}
-		include "views/partials/panel.cfm"
 	}
 
 	// Render Layout
